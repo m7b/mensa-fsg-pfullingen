@@ -36,15 +36,16 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
-        req = urllib2.Request(URL, headers={'User-Agent' : "Magic Browser"}) 
-        remote_file = urllib2.urlopen(req).read()
-        memory_file = io.BytesIO(remote_file)
-        read_pdf = pypdf.PdfFileReader(memory_file)
-        number_of_pages = read_pdf.getNumPages()
+        #URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
+        #req = urllib2.Request(URL, headers={'User-Agent' : "Magic Browser"}) 
+        #remote_file = urllib2.urlopen(req).read()
+        #memory_file = io.BytesIO(remote_file)
+        #read_pdf = pypdf.PdfFileReader(memory_file)
+        #number_of_pages = read_pdf.getNumPages()
         #number_of_pages = 2
         
-        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + str(number_of_pages) + " pages"
+        speak_output = "Willkommen bei der Mensa im F. S. G. Pfullingen, leider gibt es nichts gescheites zum Essen diese Woche."
+        #speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + str(number_of_pages) + " pages"
         #speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try?"
         
 
