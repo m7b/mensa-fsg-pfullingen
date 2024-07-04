@@ -22,8 +22,6 @@ import urllib2
 from pypdf import PdfReader
 import io
 
-URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
-
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -38,6 +36,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
+        URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
         req = urllib2.Request(URL, headers={'User-Agent' : "Magic Browser"}) 
         remote_file = urllib2.urlopen(req).read()
         memory_file = io.BytesIO(remote_file)
