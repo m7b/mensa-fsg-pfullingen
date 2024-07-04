@@ -41,7 +41,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         req = urllib2.Request(URL, headers={'User-Agent' : "Magic Browser"}) 
         remote_file = urllib2.urlopen(req).read()
         memory_file = io.BytesIO(remote_file)
-        read_pdf = PyPDF2.PdfFileReader(memory_file)
+        read_pdf = pypdf.PdfFileReader(memory_file)
         number_of_pages = read_pdf.getNumPages()
         #number_of_pages = 2
         
