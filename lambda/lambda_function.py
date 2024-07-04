@@ -22,6 +22,11 @@ from ask_sdk_model import Response
 #from pypdf import PdfReader
 #import io
 
+import urllib.request
+#from pypdf import PdfReader
+import pypdf
+import io
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -44,8 +49,13 @@ class LaunchRequestHandler(AbstractRequestHandler):
         #number_of_pages = read_pdf.getNumPages()
         #number_of_pages = 2
         
-        speak_output = "Willkommen bei der Mensa im F. S. G. Pfullingen, leider gibt es nichts gescheites zum Essen diese Woche."
-        #speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + str(number_of_pages) + " pages"
+        remote_file = urllib.request.urlopen(URL)
+        memory_file = io.BytesIO(remote_file.read())
+        read_pdf = pypdf.PdfReader(memory_file)
+        number_of_pages = read_pdf.get_num_pages()
+        
+        #speak_output = "Willkommen bei der Mensa im F. S. G. Pfullingen, leider gibt es nichts gescheites zum Essen diese Woche."
+        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + str(number_of_pages) + " pages"
         #speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try?"
         
 
