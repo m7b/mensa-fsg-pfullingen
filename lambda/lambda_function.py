@@ -18,9 +18,9 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 
-import urllib2
-from pypdf import PdfReader
-import io
+#import urllib2
+#from pypdf import PdfReader
+#import io
 
 URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
 
@@ -43,9 +43,10 @@ class LaunchRequestHandler(AbstractRequestHandler):
         #memory_file = io.BytesIO(remote_file)
         #read_pdf = PyPDF2.PdfFileReader(memory_file)
         #number_of_pages = read_pdf.getNumPages()
-        number_of_pages = 2
+        #number_of_pages = 2
         
-        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + number_of_pages + " pages"
+        #speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + number_of_pages + " pages"
+        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try?"
         
 
         return (
