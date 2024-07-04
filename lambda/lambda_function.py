@@ -45,7 +45,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         #number_of_pages = read_pdf.getNumPages()
         number_of_pages = 2
         
-        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + number_of_pages + " pages"
+        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + str(number_of_pages) + " pages"
         #speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try?"
         
 
