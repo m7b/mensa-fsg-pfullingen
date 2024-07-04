@@ -18,9 +18,9 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 
-#import urllib2
-#from pypdf import PdfReader
-#import io
+import urllib2
+from pypdf import PdfReader
+import io
 
 URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
 
