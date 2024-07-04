@@ -44,7 +44,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         read_pdf = pypdf.PdfReader(memory_file)
         number_of_pages = read_pdf.get_num_pages()
         
-        pageObj = read_pdf.get_page(1)
+        pageObj = read_pdf.get_page(0)
         page = pageObj.extract_text()
         
         #speak_output = "Willkommen bei der Mensa im F. S. G. Pfullingen, leider gibt es nichts gescheites zum Essen diese Woche."
