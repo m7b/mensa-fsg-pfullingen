@@ -37,7 +37,15 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try?"
+        
+        req = urllib2.Request(URL, headers={'User-Agent' : "Magic Browser"}) 
+        remote_file = urllib2.urlopen(req).read()
+        memory_file = io.BytesIO(remote_file)
+        read_pdf = PyPDF2.PdfFileReader(memory_file)
+        number_of_pages = read_pdf.getNumPages()
+        
+        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + number_of_pages + " pages"
+        
 
         return (
             handler_input.response_builder
