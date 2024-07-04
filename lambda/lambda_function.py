@@ -39,13 +39,6 @@ class LaunchRequestHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         
         URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
-        #req = urllib2.Request(URL, headers={'User-Agent' : "Magic Browser"}) 
-        #remote_file = urllib2.urlopen(req).read()
-        #memory_file = io.BytesIO(remote_file)
-        #read_pdf = pypdf.PdfFileReader(memory_file)
-        #number_of_pages = read_pdf.getNumPages()
-        #number_of_pages = 2
-        
         remote_file = urllib.request.urlopen(URL)
         memory_file = io.BytesIO(remote_file.read())
         read_pdf = pypdf.PdfReader(memory_file)
