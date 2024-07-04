@@ -4,6 +4,10 @@
 # Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
 # session persistence, api calls, and more.
 # This sample is built using the handler classes approach in skill builder.
+
+# https://upload.fsg-pfullingen.de/Speiseplan.pdf
+# https://stackoverflow.com/questions/76110821/extract-specific-text-from-pdf-using-python
+
 import logging
 import ask_sdk_core.utils as ask_utils
 
