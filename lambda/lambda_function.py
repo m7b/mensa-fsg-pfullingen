@@ -18,14 +18,11 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 
-#mport urllib2
-#from pypdf import PdfReader
-#import io
-
+########################################
 import urllib.request
-#from pypdf import PdfReader
 import pypdf
 import io
+########################################
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -41,7 +38,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        #URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
+        URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
         #req = urllib2.Request(URL, headers={'User-Agent' : "Magic Browser"}) 
         #remote_file = urllib2.urlopen(req).read()
         #memory_file = io.BytesIO(remote_file)
