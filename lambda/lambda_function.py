@@ -10,6 +10,7 @@
 
 import logging
 import ask_sdk_core.utils as ask_utils
+import PyPDF2
 
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
