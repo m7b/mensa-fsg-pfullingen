@@ -48,7 +48,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         page = pageObj.extract_text()
         
         #speak_output = "Willkommen bei der Mensa im F. S. G. Pfullingen, leider gibt es nichts gescheites zum Essen diese Woche."
-        speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try? i read " + str(number_of_pages) + " pages. " + page
+        speak_output = "Willkommen in der Mensa des Friedrich Schiller Gymnasiums in Pfullingen. Folgendes steht auf der Speisekarte: " + page
         #speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try?"
         
 
