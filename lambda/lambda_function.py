@@ -36,7 +36,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         
         meal = cMeal('https://upload.fsg-pfullingen.de/Speiseplan.pdf')
-        speak_output = "Willkommen in der Mensa des Friedrich Schiller Gymnasiums in Pfullingen. Folgendes steht auf der Speisekarte für " + meal.at_mon
+        speak_output = "Willkommen in der Mensa des Friedrich-Schiller-Gymnasium in Pfullingen. Folgendes steht auf der Speisekarte für " + meal.at_mon
         speak_ask = "Sonst noch was?"
 
         return (
