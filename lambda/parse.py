@@ -82,4 +82,5 @@ class cMeal:
             retval = self.at_thu
         else:
             retval = "Tja... für heute steht nichts auf dem Speiseplan."
+        return retval
 
