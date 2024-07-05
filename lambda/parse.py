@@ -1,7 +1,6 @@
 import urllib.request
 import pypdf
 import io
-import re
 import luapatt
 
 class cMeal:
@@ -61,7 +60,6 @@ class cMeal:
         return meal.replace('\n', '.\n')
     
     def remove_additives(self, meal):
-        #meal = re.sub(r'\([^\]]+\)', '', meal)
         meal = luapatt.gsub(meal, '%b()', '')
         return meal
     
