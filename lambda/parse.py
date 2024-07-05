@@ -2,6 +2,7 @@ import urllib.request
 import pypdf
 import io
 import re
+import luapatt
 
 class cMeal:
     def __init__(self, menu_url):
@@ -60,7 +61,8 @@ class cMeal:
         return meal.replace('\n', '.\n')
     
     def remove_additives(self, meal):
-        meal = re.sub(r'\([^\]]+\)', '', meal)
+        #meal = re.sub(r'\([^\]]+\)', '', meal)
+        meal = luapatt.gsub(meal, '%b()', '')
         return meal
     
     def remove_allergy_triggers(self, meal):
