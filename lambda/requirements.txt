@@ -2,4 +2,3 @@ boto3==1.28.78
 ask-sdk-core==1.19.0
 pypdf
 luapatt
-datetime
