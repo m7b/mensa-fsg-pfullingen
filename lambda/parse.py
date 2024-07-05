@@ -81,6 +81,6 @@ class cMeal:
         elif today.weekday() == 3:
             retval = self.at_thu
         else:
-            retval = "Tja... für heute steht nichts auf dem Speiseplan."
+            retval = "hmm.. für heute steht ja gar nichts auf dem Speiseplan."
         return retval
 
