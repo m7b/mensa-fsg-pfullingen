@@ -18,11 +18,7 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 
-########################################
-import urllib.request
-import pypdf
-import io
-########################################
+from parse import cMeal
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -38,17 +34,10 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        URL = 'https://upload.fsg-pfullingen.de/Speiseplan.pdf'
-        remote_file = urllib.request.urlopen(URL)
-        memory_file = io.BytesIO(remote_file.read())
-        read_pdf = pypdf.PdfReader(memory_file)
-        number_of_pages = read_pdf.get_num_pages()
-        
-        pageObj = read_pdf.get_page(0)
-        page = pageObj.extract_text()
+        meal = cMeal('https://upload.fsg-pfullingen.de/Speiseplan.pdf')
         
         #speak_output = "Willkommen bei der Mensa im F. S. G. Pfullingen, leider gibt es nichts gescheites zum Essen diese Woche."
-        speak_output = "Willkommen in der Mensa des Friedrich Schiller Gymnasiums in Pfullingen. Folgendes steht auf der Speisekarte: " + page
+        speak_output = "Willkommen in der Mensa des Friedrich Schiller Gymnasiums in Pfullingen. Folgendes steht auf der Speisekarte für Montag: " + meal.at_mon
         #speak_output = "Welcome to Mensa F. S. G. Pfullingen, you can say Hello or Help. Which would you like to try?"
         
 
