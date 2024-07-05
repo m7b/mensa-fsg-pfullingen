@@ -1,6 +1,7 @@
 import urllib.request
 import pypdf
 import io
+import re
 
 class cMeal:
     def __init__(self, menu_url):
@@ -26,7 +27,7 @@ class cMeal:
         start = self.page.find(day_token)
         ende  = self.page.find('\n \n', start)
         meal  = self.page[start:ende]
-        meal  = self.correct_date(meal)
+        meal  = self.correct_space_dot(meal)
         meal  = self.correct_mittwoch(meal)
         meal  = self.correct_space_comma(meal)
         meal  = self.correct_comma_space_space(meal)
@@ -34,9 +35,13 @@ class cMeal:
         meal  = self.add_sentence_end(meal)
         meal  = self.remove_additives(meal)
         meal  = self.remove_allergy_triggers(meal)
+        meal  = self.correct_space_dot(meal)
+        meal  = self.add_final_dot(meal)
+        meal  = self.correct_space_dot(meal)
+        meal  = self.correct_space_comma(meal)
         return meal
     
-    def correct_date(self, meal):
+    def correct_space_dot(self, meal):
         return meal.replace(' .', '.')
     
     def correct_mittwoch(self, meal):
@@ -55,8 +60,12 @@ class cMeal:
         return meal.replace('\n', '.\n')
     
     def remove_additives(self, meal):
+        meal = re.sub(r'\([^\]]+\)', '', meal)
         return meal
     
     def remove_allergy_triggers(self, meal):
         return meal
+    
+    def add_final_dot(self, meal):
+        return meal + '.'
 
