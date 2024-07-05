@@ -37,11 +37,12 @@ class LaunchRequestHandler(AbstractRequestHandler):
         
         meal = cMeal('https://upload.fsg-pfullingen.de/Speiseplan.pdf')
         speak_output = "Willkommen in der Mensa des Friedrich Schiller Gymnasiums in Pfullingen. Folgendes steht auf der Speisekarte für " + meal.at_mon
+        speak_ask = "Sonst noch was?"
 
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask(speak_output)
+                .ask(speak_ask)
                 .response
         )
 
