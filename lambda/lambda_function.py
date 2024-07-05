@@ -18,6 +18,7 @@ from ask_sdk_core.handler_input import HandlerInput
 
 from ask_sdk_model import Response
 
+# my meal class
 from parse import cMeal
 
 logger = logging.getLogger(__name__)
