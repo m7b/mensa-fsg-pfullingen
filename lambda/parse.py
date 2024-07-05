@@ -31,6 +31,7 @@ class cMeal:
         meal  = self.correct_space_comma(meal)
         meal  = self.correct_comma_space_space(meal)
         meal  = self.correct_space_space(meal)
+        meal  = self.add_sentence_end(meal)
         meal  = self.remove_additives(meal)
         meal  = self.remove_allergy_triggers(meal)
         return meal
@@ -49,6 +50,9 @@ class cMeal:
     
     def correct_space_space(self, meal):
         return meal.replace('  ', ' ')
+    
+    def add_sentence_end(self, meal):
+        return meal.replace('\n', '.\n')
     
     def remove_additives(self, meal):
         return meal
