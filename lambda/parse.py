@@ -2,6 +2,7 @@ import urllib.request
 import pypdf
 import io
 import luapatt
+import datetime
 
 class cMeal:
     def __init__(self, menu_url):
@@ -68,4 +69,17 @@ class cMeal:
     
     def add_final_dot(self, meal):
         return meal + '.'
+    
+    def get_todays_meal(self):
+        today = datetime.datetime.today()
+        if today.weekday() == 0:
+            retval = self.at_mon
+        elif today.weekday() == 1:
+            retval = self.at_tue
+        elif today.weekday() == 2:
+            retval = self.at_wed
+        elif today.weekday() == 3:
+            retval = self.at_thu
+        else:
+            retval = "Tja... für heute steht nichts auf dem Speiseplan."
 
