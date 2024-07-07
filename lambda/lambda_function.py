@@ -43,7 +43,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-        #        .ask(speak_ask)
+                .ask(speak_ask)
                 .response
         )
 
