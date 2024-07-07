@@ -48,29 +48,6 @@ class LaunchRequestHandler(AbstractRequestHandler):
         )
 
 
-class SpeiseplanIntentHandler(AbstractRequestHandler):
-    """Handler for Skill Launch."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-
-        return ask_utils.is_request_type("SpeiseplanIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        
-        meal = cMeal('https://upload.fsg-pfullingen.de/Speiseplan.pdf')
-        speak_output = "Folgendes steht auf der Speisekarte für " + meal.get_todays_meal()
-        
-        speak_ask = "Sonst noch was?"
-
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_ask)
-                .response
-        )
-
-
 class HelloWorldIntentHandler(AbstractRequestHandler):
     """Handler for Hello World Intent."""
     def can_handle(self, handler_input):
@@ -205,7 +182,6 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
-sb.add_request_handler(SpeiseplanIntentHandler())
 sb.add_request_handler(HelloWorldIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
