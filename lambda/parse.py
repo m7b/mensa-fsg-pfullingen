@@ -7,10 +7,10 @@ import datetime
 class cMeal:
     def __init__(self, menu_url):
         self.page   = self.getMenu(menu_url)
-        self.at_mon = self.getMeal('Montag')
-        self.at_tue = self.getMeal('Dienst')
-        self.at_wed = self.getMeal('Mittwo')
-        self.at_thu = self.getMeal('Donner')
+        self.at_mon = self.getMeal('Montag', 'Dienst')
+        self.at_tue = self.getMeal('Dienst', 'Mittw')
+        self.at_wed = self.getMeal('Mittwo', 'Donner')
+        self.at_thu = self.getMeal('Donner', '\n\n')
 
     def getMenu(self, menu_url):
         remote_file = urllib.request.urlopen(menu_url)
@@ -24,22 +24,25 @@ class cMeal:
         #print (page)
         return page
 
-    def getMeal(self, day_token):
+    def getMeal(self, day_token, next_day_token):
         start = self.page.find(day_token)
-        ende  = self.page.find('\n \n', start)
+        ende  = self.page.find(next_day_token, start)
         meal  = self.page[start:ende]
-        meal  = self.correct_space_dot(meal)
-        meal  = self.correct_mittwoch(meal)
-        meal  = self.correct_space_comma(meal)
-        meal  = self.correct_comma_space_space(meal)
-        meal  = self.correct_space_space(meal)
-        meal  = self.add_sentence_end(meal)
-        meal  = self.remove_additives(meal)
-        meal  = self.remove_allergy_triggers(meal)
-        meal  = self.correct_space_dot(meal)
-        meal  = self.add_final_dot(meal)
-        meal  = self.correct_space_dot(meal)
-        meal  = self.correct_space_comma(meal)
+        if not meal.find(day_token):
+            meal  = self.correct_space_dot(meal)
+            meal  = self.correct_mittwoch(meal)
+            meal  = self.correct_space_comma(meal)
+            meal  = self.correct_comma_space_space(meal)
+            meal  = self.correct_space_space(meal)
+            meal  = self.add_sentence_end(meal)
+            meal  = self.remove_additives(meal)
+            meal  = self.remove_allergy_triggers(meal)
+            meal  = self.correct_space_dot(meal)
+            meal  = self.add_final_dot(meal)
+            meal  = self.correct_space_dot(meal)
+            meal  = self.correct_space_comma(meal)
+        else:
+            meal = 'Sorry, nix aufm Plan.'
         return meal
     
     def correct_space_dot(self, meal):
