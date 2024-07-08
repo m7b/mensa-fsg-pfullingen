@@ -64,13 +64,13 @@ class AskMeSomethingIntentHandler(AbstractRequestHandler):
 
         speak_output = "Folgendes steht auf der Speisekarte für "
         if weekday == "montag":
-            speak_output += meal.get_todays_meal()
+            speak_output += meal.get_meal_monday()
         elif weekday == "dienstag":
-            speak_output += meal.at_tue()
+            speak_output += meal.get_meal_tuesday()
         elif weekday == "mittwoch":
-            speak_output += meal.at_wed()
+            speak_output += meal.get_meal_wednesday()
         elif weekday == "donnerstag":
-            speak_output += meal.at_thu()
+            speak_output += meal.get_meal_thursday()
         elif weekday == "heute":
             speak_output += meal.get_todays_meal()
         else:
