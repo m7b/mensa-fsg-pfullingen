@@ -42,7 +42,7 @@ class cMeal:
             meal  = self.correct_space_dot(meal)
             meal  = self.correct_space_comma(meal)
         else:
-            meal = 'Sorry, nix auf dem Plan.'
+            meal = ' .. hmmm.. sorry, nix auf dem Plan.'
         return meal
     
     def correct_space_dot(self, meal):
