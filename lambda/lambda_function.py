@@ -58,7 +58,7 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         
         slots = event['request']['intent']['slots']
-        weekday = slots['day']
+        weekday = slots['day']['value']
         speak_output = "Hello World!" + weekday
         
         
