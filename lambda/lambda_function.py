@@ -78,7 +78,7 @@ class AskMeSomethingIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         
         slots = handler_input.request_envelope.request.slots
-        weekday = slots["weekday"].value
+        weekday = slots["day"].value
         
         if weekday == "montag":
             speak_output = "You said monday!"
