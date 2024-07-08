@@ -56,8 +56,14 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        const weekday = Alexa.getSlotValue(handlerInput.requestEnvelope, 'day')
+       
+        
+        slots = event['request']['intent']['slots']
+        weekday = slots['day']
         speak_output = "Hello World!" + weekday
+        
+        
+        
 
         return (
             handler_input.response_builder
