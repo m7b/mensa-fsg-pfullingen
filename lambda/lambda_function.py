@@ -57,8 +57,8 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        slots = handler_input.request.slots
-        weekday = slots['day'].value
+        slots = handler_input.request_envelope.request.slots
+        weekday = slots["day"].value
         speak_output = "Hello World!" + weekday
         
         
