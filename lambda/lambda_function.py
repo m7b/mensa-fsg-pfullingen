@@ -56,7 +56,6 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-       
         
         slots = event['request']['intent']['slots']
         weekday = slots['day']
