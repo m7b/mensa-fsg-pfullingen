@@ -68,6 +68,23 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
         )
 
 
+class JuhuIntentHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        return ask_utils.is_intent_name("JuhuIntent")(handler_input)
+
+    def handle(self, handler_input):
+        
+        speak_output = "Juhu Intent"
+        speak_ask = "Sonst noch was?"
+
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_ask)
+                .response
+        )
+
+
 class AskMeSomethingIntentHandler(AbstractRequestHandler):
     """Handler for AskMeSomethingIntent Intent."""
     def can_handle(self, handler_input):
@@ -215,6 +232,7 @@ sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_request_handler(HelloWorldIntentHandler())
+sb.add_request_handler(JuhuIntentHandler())
 sb.add_request_handler(AskMeSomethingIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
