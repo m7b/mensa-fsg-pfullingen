@@ -133,7 +133,7 @@ class FallbackIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         logger.info("In FallbackIntentHandler")
         speech = "Hmm, Ich bin mir nicht sicher. Du kannst hilfe sagen oder dich verabschieden. Was magst du tun?"
-        reprompt = "I didn't catch that. What can I help you with?"
+        reprompt = "Sonst noch was?"
 
         return handler_input.response_builder.speak(speech).ask(reprompt).response
 
