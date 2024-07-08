@@ -94,7 +94,7 @@ class AskMeSomethingIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-    #    slots = handler_input.request_envelope.request.slots
+        slots = handler_input.request_envelope.request.slots
     #    weekday = slots["day"].value
 
         weekday = "montag"    
