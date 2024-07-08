@@ -42,7 +42,7 @@ class cMeal:
             meal  = self.correct_space_dot(meal)
             meal  = self.correct_space_comma(meal)
         else:
-            meal = 'Sorry, nix aufm Plan.'
+            meal = 'Sorry, nix auf dem Plan.'
         return meal
     
     def correct_space_dot(self, meal):
@@ -86,4 +86,16 @@ class cMeal:
         else:
             retval = "... hmm.. für heute steht ja gar nichts auf dem Plan."
         return retval
+        
+    def get_meal_monday(self):
+        return self.at_mon
+        
+    def get_meal_tuesday(self):
+        return self.at_tue
+        
+    def get_meal_wednesday(self):
+        return self.at_wed
+        
+    def get_meal_thursday(self):
+        return self.at_thu
 
