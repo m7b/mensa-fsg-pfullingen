@@ -47,43 +47,6 @@ class LaunchRequestHandler(AbstractRequestHandler):
         )
 
 
-class HelloWorldIntentHandler(AbstractRequestHandler):
-    """Handler for Hello World Intent."""
-    def can_handle(self, handler_input):
-        # type: (HandlerInput) -> bool
-        return ask_utils.is_intent_name("HelloWorldIntent")(handler_input)
-
-    def handle(self, handler_input):
-        # type: (HandlerInput) -> Response
-        
-        speak_output = "Hello World! You said something!"
-        speak_ask = "Sonst noch was?"
-
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_ask)
-                .response
-        )
-
-
-class JuhuIntentHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        return ask_utils.is_intent_name("JuhuIntent")(handler_input)
-
-    def handle(self, handler_input):
-        
-        speak_output = "Juhu Intent"
-        speak_ask = "Sonst noch was?"
-
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_ask)
-                .response
-        )
-
-
 class AskMeSomethingIntentHandler(AbstractRequestHandler):
     """Handler for AskMeSomethingIntent Intent."""
     def can_handle(self, handler_input):
@@ -97,9 +60,9 @@ class AskMeSomethingIntentHandler(AbstractRequestHandler):
         weekday = slots["day"].value
         
         meal = cMeal('https://upload.fsg-pfullingen.de/Speiseplan.pdf')
-        speak_output = "Willkommen in der Mensa des Friedrich-Schiller-Gymnasium in Pfullingen."# Folgendes steht auf der Speisekarte für " + meal.get_todays_meal()
+        speak_output = "Willkommen in der Mensa des Friedrich-Schiller-Gymnasium in Pfullingen."
 
-        speak_output = "Folgendes steht auf der Speisekarte für"
+        speak_output = "Folgendes steht auf der Speisekarte für "
         if weekday == "montag":
             speak_output += meal.get_todays_meal()
         elif weekday == "dienstag":
@@ -111,10 +74,8 @@ class AskMeSomethingIntentHandler(AbstractRequestHandler):
         elif weekday == "heute":
             speak_output += meal.get_todays_meal()
         else:
-            speak_output = "Hello World! You said something!"
-        
-        
-        
+            speak_output = "Für " + weekday + " habe ich nichts auf dem Plan gefunden."
+
 
         return (
             handler_input.response_builder
@@ -242,8 +203,6 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 sb = SkillBuilder()
 
 sb.add_request_handler(LaunchRequestHandler())
-sb.add_request_handler(HelloWorldIntentHandler())
-sb.add_request_handler(JuhuIntentHandler())
 sb.add_request_handler(AskMeSomethingIntentHandler())
 sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
