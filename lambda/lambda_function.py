@@ -35,8 +35,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        #meal = cMeal('https://upload.fsg-pfullingen.de/Speiseplan.pdf')
-        speak_output = "Willkommen in der Mensa des Friedrich-Schiller-Gymnasium in Pfullingen."# Folgendes steht auf der Speisekarte für " + meal.get_todays_meal()
+        speak_output = "Willkommen in der Mensa des Friedrich-Schiller-Gymnasium in Pfullingen."
         
         speak_ask = "Sonst noch was?"
 
@@ -96,10 +95,21 @@ class AskMeSomethingIntentHandler(AbstractRequestHandler):
         
         slots = handler_input.request_envelope.request.intent.slots
         weekday = slots["day"].value
+        
+        meal = cMeal('https://upload.fsg-pfullingen.de/Speiseplan.pdf')
+        speak_output = "Willkommen in der Mensa des Friedrich-Schiller-Gymnasium in Pfullingen."# Folgendes steht auf der Speisekarte für " + meal.get_todays_meal()
 
-    #    weekday = "montag"    
+        speak_output = "Folgendes steht auf der Speisekarte für"
         if weekday == "montag":
-            speak_output = "You said monday!"
+            speak_output += meal.get_todays_meal()
+        elif weekday == "dienstag":
+            speak_output += meal.at_tue()
+        elif weekday == "mittwoch":
+            speak_output += meal.at_wed()
+        elif weekday == "donnerstag":
+            speak_output += meal.at_thu()
+        elif weekday == "heute":
+            speak_output += meal.get_todays_meal()
         else:
             speak_output = "Hello World! You said something!"
         
