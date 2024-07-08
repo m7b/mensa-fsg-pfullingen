@@ -63,7 +63,7 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
         if weekday == "monday":
             speak_output = "You said monday!"
         else:
-            speak_output = "Hello World!" + weekday
+            speak_output = "Hello World! You said something!"
         
         
         
