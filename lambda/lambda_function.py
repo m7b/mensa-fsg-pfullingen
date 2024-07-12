@@ -35,7 +35,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        speak_output = "Willkommen in der Mensa des Friedrich-Schiller-Gymnasium in Pfullingen."
+        speak_output = "Willkommen in der Mensa des Friedrich-Schiller-Gymnasium in Pfullingen. " + "Du könntest mich fragen: was gibt es am montag?"
         
         speak_ask = "Sonst noch was?"
 
