@@ -1,0 +1,80 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "slots": [
+            {
+              "name": "day",
+              "type": "weekday"
+            }
+          ],
+          "name": "AskMeSomethingIntent",
+          "samples": [
+            "was gibt es {day} zum essen",
+            "Was gibt es am {day} zum essen",
+            "was gibt es {day} zu essen",
+            "Was gibt es am {day} zu essen",
+            "was gibts {day}",
+            "was gibts am {day}",
+            "Was gibt es {day}",
+            "Was gibt es am {day}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "heute"
+              }
+            },
+            {
+              "name": {
+                "value": "donnerstag"
+              }
+            },
+            {
+              "name": {
+                "value": "mittwoch"
+              }
+            },
+            {
+              "name": {
+                "value": "dienstag"
+              }
+            },
+            {
+              "name": {
+                "value": "montag"
+              }
+            }
+          ],
+          "name": "weekday"
+        }
+      ],
+      "invocationName": "mensa pfullingen"
+    }
+  }
+}
